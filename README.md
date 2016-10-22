@@ -3,6 +3,14 @@
  
 JavaScriptにおいて各種フレームワークの実現するdata-bindingがどのように実現されるのか知るために実際に作る.
  
+ ## Usage
+ ```bash
+ npm install
+ gulp # lunch server on 8080
+ 
+ gulp build # build script
+ ```
+ 
  ## データバインディングを行う手法
  * モデル-クラス方式　
   * モデルのクラスとしてバインドする値を定めモデルに定義されたインターフェースで操作する
