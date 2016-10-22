@@ -1,9 +1,10 @@
-## js-data-bind
+# js-data-bind
 >JavaScript data-binding
  
 JavaScriptにおいて各種フレームワークの実現するdata-bindingがどのように実現されるのか知るために実際に作る.
  
- ## Usage
+## Usage
+ 
  ```bash
  npm install
  gulp # lunch server on 8080
@@ -11,7 +12,8 @@ JavaScriptにおいて各種フレームワークの実現するdata-bindingが�
  gulp build # build script
  ```
  
- ## データバインディングを行う手法
+## データバインディングを行う手法
+ 
  * モデル-クラス方式　
   * モデルのクラスとしてバインドする値を定めモデルに定義されたインターフェースで操作する
   * 利用フレームワークはEmber Backbone Knockout Ractive etc...
