@@ -4,4 +4,14 @@ html(lang="ja")
         meta(charset="utf-8")
         title JS-data-bind
     body
+        h1 data1
+        div(data-bind="data1")
+        hr
+        h1 data2
+        div(data-bind="data2")
+        hr
+        h1 data3 input-field
+        div(data-bind="textField")
+        input#input(type="text")
         script(src="js/main.js")
+
