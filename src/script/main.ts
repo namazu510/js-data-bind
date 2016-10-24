@@ -4,7 +4,7 @@
  */
 class ViewBindProxy<T extends Data>{
 
-    proxyData;
+    private proxyData;
 
     constructor(data:T,proxyHandler?:ProxyHandler){
         let handler:ProxyHandler = {
@@ -26,6 +26,7 @@ class ViewBindProxy<T extends Data>{
         }
 
         this.proxyData = new Proxy(data,handler);
+        (<T>this.proxyData).onInit();
     }
 
     set(name:String,value:any){
@@ -35,14 +36,17 @@ class ViewBindProxy<T extends Data>{
 }
 
 interface Data{
+    /**
+     * データ初期化処理.
+     */
     onInit();
 }
 
 
 class ViewData implements Data {
-    data1;
-    data2;
-    textField;
+    data1: String;
+    data2: String;
+    textField: String;
 
     onInit(){
         this.data1 = 'hoge';
@@ -53,8 +57,6 @@ class ViewData implements Data {
 
 const proxy = new ViewBindProxy<ViewData>(new ViewData());
 
-proxy.set('data1','hogehoge');
-
 var textHandler = (e) => {
     let elm = e.target;
     //console.log(elm.value);
@@ -63,6 +65,6 @@ var textHandler = (e) => {
 document.getElementById('input').addEventListener('input',textHandler);
 
 setTimeout(()=>{
-    proxy.set('data2','barbar');
     proxy.set('data1','hogehogehoge');
+    proxy.set('data2','barbar');
 },2000);
